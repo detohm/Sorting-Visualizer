@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import './App.css';
-
+import Home from './pages/Home';
+import MergeSort from './pages/MergeSort';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/merge-sort">Merge Sort</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/merge-sort" element={<MergeSort />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
