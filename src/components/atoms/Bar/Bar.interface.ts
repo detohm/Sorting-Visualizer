@@ -1,4 +1,5 @@
 export interface IBar {
-    value: number;
+    width: number;
+    height: number;
     color: string;
 }

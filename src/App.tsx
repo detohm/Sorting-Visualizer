@@ -12,10 +12,23 @@ function App() {
     setNum(parseInt(e.target.value))
   };
 
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const handleStartButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!isRunning) {
+      setIsRunning(true);
+    }
+    setTimeout(() => {
+      setIsRunning(false);
+    }, 3000);
+  }
 
   return (
     <BrowserRouter>
-      <Header onNumChange={handleNumChange} />
+      <Header
+        isRunning={isRunning}
+        onNumChange={handleNumChange}
+        onStartButtonClick={handleStartButtonClick} />
+
       <Routes>
         <Route path="/" element={<Layout />} >
           <Route path="" element={<Home />} />
@@ -23,6 +36,7 @@ function App() {
           <Route path="quick-sort" element={<Sort num={num} />} />
         </Route>
       </Routes>
+
     </BrowserRouter>
   );
 }

@@ -4,8 +4,13 @@ const Bar = (props: IBar) => {
     return (
         <div
             className={styles.bar}
-            style={{ height: `${props.value}px` }}>
-            {props.value}
+            style={
+                {
+                    width: `${props.width}px`,
+                    height: `${props.height}px`
+                }
+            }>
+            {props.height}
         </div>
     )
 };

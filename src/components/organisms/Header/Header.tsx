@@ -13,13 +13,25 @@ const Header = (props: IHeader) => {
         };
     };
 
+    const min = 2, max = 50;
+
     return (
         <div className={styles.header}>
             <div className={styles.title}>
                 <NavLink to="/">Sorting Visualizer</NavLink>
             </div>
-            <RangeSlider min={1} max={100} onChange={props.onNumChange} />
-            <Button label="Start Sorting!" />
+
+            <RangeSlider
+                min={min}
+                max={max}
+                disabled={props.isRunning}
+                onChange={props.onNumChange} />
+
+            <Button
+                label={props.isRunning ? "Running!" : "Start!"}
+                disabled={props.isRunning}
+                onClick={props.onStartButtonClick} />
+
             <nav className={styles.nav}>
                 <NavLink
                     to="/merge-sort"
