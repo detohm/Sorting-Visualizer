@@ -1,9 +1,8 @@
+import Visualizer from "../../components/organisms/Visualizer/Visualizer";
 
 const QuickSort = () => {
     return (
-        <div>
-            <div>Quick Sort</div>
-        </div>
+        <Visualizer />
     );
 };
 

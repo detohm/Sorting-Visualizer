@@ -1,9 +1,8 @@
+import Visualizer from "../../components/organisms/Visualizer/Visualizer";
 
 const MergeSort = () => {
     return (
-        <div>
-            <div>Mergesort</div>
-        </div>
+        <Visualizer />
     );
 };
 
