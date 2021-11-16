@@ -1,0 +1,36 @@
+.header {
+    background-color: #333;
+    padding:10px;
+    display: block;
+}
+
+.title {
+    color: #FFF;
+    display: inline-block;
+    font-weight:700;
+}
+
+.title a,.title a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.nav {
+    background-color: #333;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+
+}
+
+.nav a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    color: #FFF;
+}
+
+.nav a:hover {
+    color: #ccc;
+}

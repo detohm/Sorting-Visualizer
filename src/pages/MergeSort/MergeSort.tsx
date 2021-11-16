@@ -1,6 +1,9 @@
+
 const MergeSort = () => {
     return (
-        <div>Mergesort</div>
+        <div>
+            <div>Mergesort</div>
+        </div>
     );
 };
 

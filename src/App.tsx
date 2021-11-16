@@ -1,18 +1,19 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import MergeSort from './pages/MergeSort';
+import Layout from './components/organisms/Layout/Layout';
+import Home from './pages/Home/Home';
+import MergeSort from './pages/MergeSort/MergeSort';
+import QuickSort from './pages/QuickSort/QuickSort';
 function App() {
   return (
     <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/merge-sort">Merge Sort</Link>
-      </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/merge-sort" element={<MergeSort />} />
+        <Route path="/" element={<Layout />} >
+          <Route path="" element={<Home />} />
+          <Route path="merge-sort" element={<MergeSort />} />
+          <Route path="quick-sort" element={<QuickSort />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
