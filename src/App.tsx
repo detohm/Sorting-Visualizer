@@ -6,7 +6,8 @@ import './App.css';
 import Header from './components/organisms/Header/Header';
 import Layout from './components/organisms/Layout/Layout';
 import Visualizer from './components/organisms/Visualizer/Visualizer';
-// generate function
+
+// helper for generating randomized elements
 const generateElements = (num: number): number[] => {
   let arr: number[] = [];
   for (let i = 0; i < num; i++) {
@@ -14,6 +15,13 @@ const generateElements = (num: number): number[] => {
   }
   return arr;
 }
+
+// helper for calculating animation speed
+const animateSpeed = (num: number): number => {
+  if (num <= 10) { return 100; }
+  if (num > 10 && num <= 25) { return 50; }
+  return 1;
+};
 
 const App = () => {
 
@@ -54,6 +62,8 @@ const App = () => {
     setSortedIdx([]);
   };
 
+
+
   // recursive approach for animating the bars.
   const animate = (animations: animationFrame[]) => {
     if (animations.length === 0) {
@@ -82,7 +92,7 @@ const App = () => {
     let timer = setTimeout(() => {
       clearTimeout(timer); // preventing memory leak.
       animate(animations);
-    }, 100);
+    }, animateSpeed(elements.length));
   }
 
   return (
