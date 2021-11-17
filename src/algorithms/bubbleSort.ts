@@ -1,8 +1,6 @@
 import { animationFrame, animationType } from './animation';
-const bubbleSort = (
-    elements: number[]
-): animationFrame[] => {
 
+const bubbleSort = (elements: number[]): animationFrame[] => {
     let arr = elements.slice(0);
 
     let animations: animationFrame[] = [];
