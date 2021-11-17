@@ -1,9 +1,9 @@
-import { Outlet } from "react-router";
+import { ILayout } from "./Layout.interface";
 
-const Layout = () => {
+const Layout = (props: ILayout) => {
     return (
         <div>
-            <Outlet />
+            {props.children}
         </div>
     );
 };

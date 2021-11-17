@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Visualizer from "../../components/organisms/Visualizer/Visualizer";
 interface ISort {
     num: number;
 };
@@ -16,7 +15,7 @@ const Sort = (props: ISort) => {
     }, [props.num])
 
     return (
-        <Visualizer elements={arr} />
+        <div></div>
     );
 };
 

@@ -10,7 +10,11 @@ const Visualizer = (props: IVisualizer) => {
     return (
         <div className={styles.visualizer}>
             {props.elements.map((e, i) =>
-                <Bar key={i} width={barWidth} height={e * heightMultiplier} color="processing" />
+                <Bar
+                    key={i}
+                    width={barWidth}
+                    height={e * heightMultiplier}
+                    color="processing" />
             )}
         </div>
     );

@@ -1,3 +1,5 @@
+import { AlgorithmEnum } from "../../../algorithms/algorithm.interface";
 export interface IVisualizer {
-    elements: number[]
+    currentAlgorithm: AlgorithmEnum;
+    elements: number[];
 };

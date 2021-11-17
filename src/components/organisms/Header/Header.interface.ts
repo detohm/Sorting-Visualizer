@@ -1,7 +1,9 @@
-import React from "react";
+import { AlgorithmEnum } from "../../../algorithms/algorithm.interface";
 
 export interface IHeader {
     isRunning: boolean;
-    onNumChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onStartButtonClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    currentAlgorithm: AlgorithmEnum;
+    onAlgorithmChange: (algo: AlgorithmEnum) => void;
+    onNumChange: (num: number) => void;
+    onStartButtonClick: () => void;
 };

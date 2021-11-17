@@ -11,7 +11,6 @@ const RangeSlider = (props: IRangeSlider) => {
         }
     };
 
-
     return (
         <input type="range"
             min={props.min}
