@@ -30,9 +30,9 @@ const App = () => {
     clearVisual();
   };
 
-  const [sortedIdx, setSortedIdx] = useState<number[]>([]);
   const [highlightIdx, setHighlightIdx] = useState<number[]>([]);
-
+  const [highlightSecondIdx, setHighlightSecondIdx] = useState<number[]>([]);
+  const [sortedIdx, setSortedIdx] = useState<number[]>([]);
 
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const handleStartButtonClick = () => {
@@ -41,7 +41,11 @@ const App = () => {
     }
 
     switch (currentAlgorithm) {
-      case AlgorithmEnum.BubbleSort: { animate(bubbleSort(elements)); }
+      case AlgorithmEnum.BubbleSort:
+        animate(bubbleSort(elements));
+        break;
+      default:
+        setIsRunning(false);
     }
   }
 
@@ -55,12 +59,18 @@ const App = () => {
     if (animations.length === 0) {
       setIsRunning(false);
       setHighlightIdx([]);
+      setHighlightSecondIdx([]);
+
       return;
     }
     let frame: animationFrame = animations[0];
     switch (frame.type) {
       case animationType.Probe:
         setHighlightIdx([frame.idx1!, frame.idx2!]);
+        setHighlightSecondIdx([]);
+        break;
+      case animationType.Swap:
+        setHighlightSecondIdx([frame.idx1!, frame.idx2!]);
         break;
       case animationType.ChangeSortedIdx:
         setSortedIdx(frame.sortedIdx!);
@@ -72,7 +82,7 @@ const App = () => {
     let timer = setTimeout(() => {
       clearTimeout(timer); // preventing memory leak.
       animate(animations);
-    }, 50);
+    }, 100);
   }
 
   return (
@@ -87,8 +97,9 @@ const App = () => {
       <Visualizer
         currentAlgorithm={currentAlgorithm}
         elements={elements}
-        sortedIdx={sortedIdx}
         highlightIdx={highlightIdx}
+        highlightSecondIdx={highlightSecondIdx}
+        sortedIdx={sortedIdx}
       />
 
     </Layout>

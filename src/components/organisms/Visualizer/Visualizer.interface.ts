@@ -4,6 +4,7 @@ export interface IVisualizer {
     elements: number[];
 
     highlightIdx: number[];
+    highlightSecondIdx: number[];
 
     sortedIdx: number[];
 };

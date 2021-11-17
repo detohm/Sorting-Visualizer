@@ -13,8 +13,12 @@ const Header = (props: IHeader) => {
         props.onNumChange(parseInt(e.target.value));
     };
 
+    // algorithm types CTA
     const handleClick = (algo: AlgorithmEnum) => {
         return (e: React.MouseEvent<HTMLElement>) => {
+            if (props.isRunning) {
+                return;
+            }
             props.onAlgorithmChange(algo);
         };
     }

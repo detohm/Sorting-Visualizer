@@ -19,8 +19,15 @@ const bubbleSort = (
             });
 
             if (arr[j] > arr[j + 1]) {
-                //TODO - sorting logic
+
                 [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+
+                animations.push({
+                    type: animationType.Swap,
+                    idx1: j,
+                    idx2: j + 1
+                });
+
                 animations.push({
                     type: animationType.ChangeElements,
                     elements: arr.slice(0)
