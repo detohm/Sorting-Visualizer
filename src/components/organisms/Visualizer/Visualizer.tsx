@@ -2,10 +2,14 @@ import Bar from '../../atoms/Bar/Bar';
 import { IVisualizer } from "./Visualizer.interface";
 import styles from './Visualizer.module.css';
 
+const mainColor: string = "darkcyan";
+const highlightColor: string = "red";
+const sortedColor: string = "#59db71";
+const heightMultiplier = 3;
+
 const Visualizer = (props: IVisualizer) => {
 
     const barWidth = window.innerWidth / (props.elements.length * 2);
-    const heightMultiplier = 3;
 
     return (
         <div className={styles.visualizer}>
@@ -14,7 +18,9 @@ const Visualizer = (props: IVisualizer) => {
                     key={i}
                     width={barWidth}
                     height={e * heightMultiplier}
-                    color="processing" />
+                    color={props.highlightIdx.includes(i) ?
+                        highlightColor : props.sortedIdx.includes(i) ?
+                            sortedColor : mainColor} />
             )}
         </div>
     );

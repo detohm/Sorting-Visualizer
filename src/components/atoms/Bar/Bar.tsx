@@ -7,7 +7,8 @@ const Bar = (props: IBar) => {
             style={
                 {
                     width: `${props.width}px`,
-                    height: `${props.height}px`
+                    height: `${props.height}px`,
+                    background: `${props.color}`
                 }
             }>
             {props.height}
