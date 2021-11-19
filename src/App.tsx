@@ -3,7 +3,6 @@ import { AlgorithmEnum } from './algorithms/algorithm.interface';
 import { animationFrame, animationType } from './algorithms/animation';
 import bubbleSort from './algorithms/bubbleSort';
 import mergeSort from './algorithms/mergeSort';
-import './App.css';
 import Header from './components/organisms/Header/Header';
 import Layout from './components/organisms/Layout/Layout';
 import Visualizer from './components/organisms/Visualizer/Visualizer';
