@@ -3,6 +3,7 @@ import { AlgorithmEnum } from './algorithms/algorithm.interface';
 import { animationFrame, animationType } from './algorithms/animation';
 import bubbleSort from './algorithms/bubbleSort';
 import mergeSort from './algorithms/mergeSort';
+import quickSort from './algorithms/quickSort';
 import Header from './components/organisms/Header/Header';
 import Layout from './components/organisms/Layout/Layout';
 import Visualizer from './components/organisms/Visualizer/Visualizer';
@@ -54,6 +55,9 @@ const App = () => {
         break;
       case AlgorithmEnum.MergeSort:
         animate(mergeSort(elements));
+        break;
+      case AlgorithmEnum.QuickSort:
+        animate(quickSort(elements));
         break;
       default:
         setIsRunning(false);
