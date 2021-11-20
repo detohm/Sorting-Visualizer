@@ -30,40 +30,43 @@ const Header = (props: IHeader) => {
             </div>
 
             <RangeSlider
+                className={styles['range-input']}
                 min={min}
                 max={max}
                 disabled={props.isRunning}
                 onChange={handleRangeSliderChange} />
 
+
+
+
+            <div
+                onClick={handleClick(AlgorithmEnum.MergeSort)}
+                className={
+                    (props.currentAlgorithm ===
+                        AlgorithmEnum.MergeSort) ?
+                        styles['nav-item-active'] : styles['nav-item']}
+            >Merge Sort</div>
+
+            <div
+                onClick={handleClick(AlgorithmEnum.QuickSort)}
+                className={
+                    (props.currentAlgorithm ===
+                        AlgorithmEnum.QuickSort) ?
+                        styles['nav-item-active'] : styles['nav-item']}
+            >Quick Sort</div>
+
+            <div
+                onClick={handleClick(AlgorithmEnum.BubbleSort)}
+                className={(props.currentAlgorithm ===
+                    AlgorithmEnum.BubbleSort) ?
+                    styles['nav-item-active'] : styles['nav-item']}
+            >Bubble Sort</div>
+
             <Button
+                className={styles['start-btn']}
                 label={props.isRunning ? "Running!" : "Start!"}
                 disabled={props.isRunning}
                 onClick={props.onStartButtonClick} />
-
-            <nav className={styles.nav}>
-                <div
-                    onClick={handleClick(AlgorithmEnum.MergeSort)}
-                    className={
-                        (props.currentAlgorithm ===
-                            AlgorithmEnum.MergeSort) ?
-                            styles['nav-item-active'] : styles['nav-item']}
-                >Merge Sort</div>
-
-                <div
-                    onClick={handleClick(AlgorithmEnum.QuickSort)}
-                    className={
-                        (props.currentAlgorithm ===
-                            AlgorithmEnum.QuickSort) ?
-                            styles['nav-item-active'] : styles['nav-item']}
-                >Quick Sort</div>
-
-                <div
-                    onClick={handleClick(AlgorithmEnum.BubbleSort)}
-                    className={(props.currentAlgorithm ===
-                        AlgorithmEnum.BubbleSort) ?
-                        styles['nav-item-active'] : styles['nav-item']}
-                >Bubble Sort</div>
-            </nav>
         </div>
     );
 };

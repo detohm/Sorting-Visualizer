@@ -27,7 +27,7 @@ const animateSpeed = (num: number): number => {
 const App = () => {
 
   const [currentAlgorithm, setCurrentAlgorithm]
-    = useState<AlgorithmEnum>(AlgorithmEnum.BubbleSort);
+    = useState<AlgorithmEnum>(AlgorithmEnum.MergeSort);
   const handleAlgorithmChange = (algo: AlgorithmEnum) => {
     setCurrentAlgorithm(algo);
     clearVisual();

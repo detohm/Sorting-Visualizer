@@ -13,6 +13,7 @@ const RangeSlider = (props: IRangeSlider) => {
 
     return (
         <input type="range"
+            className={props.className}
             min={props.min}
             max={props.max}
             value={value}
