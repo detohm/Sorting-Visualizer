@@ -2,38 +2,42 @@ import { animationFrame, animationType } from './animation';
 
 const mergeSort = (elements: number[]): animationFrame[] => {
     let animations: animationFrame[] = [];
-    let tempArr = elements.slice(0);
+    let auxElements = elements.slice(0);
     let actualElements = elements.slice(0);
-    split(tempArr, actualElements, 0, actualElements.length - 1, animations);
+    let sortedElements = elements.slice(0); // for visualizing
+    split(auxElements, actualElements, 0,
+        actualElements.length - 1, animations, sortedElements);
 
     return animations;
 };
 
 const split = (
-    tempArr: number[],
+    auxElements: number[],
     elements: number[],
     begin: number,
     end: number,
-    animations: animationFrame[]
+    animations: animationFrame[],
+    sortedElements: number[]
 ) => {
     if (end === begin) {
         return;
     }
     let middle = Math.floor((end + begin) / 2);
 
-    // technique - alternate between element & tempArray per each recursive
-    split(elements, tempArr, begin, middle, animations);
-    split(elements, tempArr, middle + 1, end, animations);
-    merge(tempArr, elements, begin, middle, end, animations);
+    // technique - alternate between element & auxElements per each recursive
+    split(elements, auxElements, begin, middle, animations, sortedElements);
+    split(elements, auxElements, middle + 1, end, animations, sortedElements);
+    merge(auxElements, elements, begin, middle, end, animations, sortedElements);
 };
 
 const merge = (
-    tempArr: number[],
+    auxElements: number[],
     elements: number[],
     begin: number,
     middle: number,
     end: number,
-    animations: animationFrame[]
+    animations: animationFrame[],
+    sortedElements: number[]
 ) => {
     let i: number = begin;
     let j: number = middle + 1;
@@ -47,16 +51,17 @@ const merge = (
             type: animationType.Probe,
             idx1: k, idx2: k
         });
-        if (tempArr[i] <= tempArr[j]) {
-            elements[k] = tempArr[i];
+        if (auxElements[i] <= auxElements[j]) {
+            elements[k] = auxElements[i];
             i++;
         } else {
-            elements[k] = tempArr[j];
+            elements[k] = auxElements[j];
             j++;
         }
+        sortedElements[k] = elements[k];
         animations.push({
             type: animationType.ChangeElements,
-            elements: elements.slice(0)
+            elements: sortedElements.slice(0)
         });
         k++;
         if (finalMerge) {
@@ -73,12 +78,14 @@ const merge = (
             type: animationType.Probe,
             idx1: k, idx2: k
         });
-        elements[k] = tempArr[i];
+        elements[k] = auxElements[i];
+        i++;
+
+        sortedElements[k] = elements[k];
         animations.push({
             type: animationType.ChangeElements,
-            elements: elements.slice(0)
+            elements: sortedElements.slice(0)
         });
-        i++;
         k++;
         if (finalMerge) {
             animations.push({
@@ -93,12 +100,14 @@ const merge = (
             type: animationType.Probe,
             idx1: k, idx2: k
         });
-        elements[k] = tempArr[j];
+        elements[k] = auxElements[j];
+        j++;
+
+        sortedElements[k] = elements[k];
         animations.push({
             type: animationType.ChangeElements,
-            elements: elements.slice(0)
+            elements: sortedElements.slice(0)
         });
-        j++;
         k++;
         if (finalMerge) {
             animations.push({
