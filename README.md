@@ -1,5 +1,7 @@
 # Sorting Visualizer
 The single page application for visualizing sorting algorithms. It's developed using React & TypeScript.
+<br />
+Demo: [https://attaphong.dev/sorting-visualizer/](https://attaphong.dev/sorting-visualizer/)
 ## Screenshots
 ![Sorting](https://github.com/detohm/sorting-visualizer/blob/main/docs/sorting-screen-1.gif?raw=true)
 ## Features
